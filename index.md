@@ -15,7 +15,6 @@ Lets also learn some basics as we go:
 
 ![Architecture](./assets/images/otel-manual-inst.jpg)
 
-
 We will be implementing the above use case. As you can see in this architecture all these application services are communicating with each other via Http or gRPC protocol and each of these services are configured to send the traces directly to OCI APM. Do note that the services send traces to APM via OTLP protocol.
 
 OTLP is a general-purpose telemetry data delivery protocol, it defines the encoding of telemetry data and the protocol used to exchange data between the client and the server. This specification defines how OTLP is implemented over gRPC and HTTP 1.1 transports and specifies Protocol Buffers schema that is used for the payloads. OTLP is a request/response style protocol: the clients send requests, and the server replies with corresponding responses.
@@ -34,8 +33,7 @@ exporter = OTLPSpanExporter(endpoint="https://<apm-data-upload-endpoint>.com/202
 
 ```
 
-Do refer this documentation for the details on this:
-https://docs.oracle.com/en-us/iaas/application-performance-monitoring/doc/configure-open-source-tracing-systems.html#APMGN-GUID-4D941163-F357-4839-8B06-688876D4C61F
+Do refer to [this](https://docs.oracle.com/en-us/iaas/application-performance-monitoring/doc/configure-open-source-tracing-systems.html#APMGN-GUID-4D941163-F357-4839-8B06-688876D4C61F) documentation for the details on this.
 
 
 # Adding Span Attributes:
@@ -62,6 +60,11 @@ def single_span():
   current_span.set_attribute(SpanAttributes.HTTP_METHOD, "GET")
   current_span.set_attribute(SpanAttributes.HTTP_URL, "https://opentelemetry.io/") 
   ```
+# Code
+Head to https://github.com/naikvenu/oracle-opentelemetry/tree/main/singleSpanExample
+and try the example that we discussed.
 
 # Summary
 This was the simple use case that we explored, we will keep adding more examples in future.
+
+** Disclaimer:  I work for Oracle and the views expressed on this documentation are my own and do not necessarily reflect the views of Oracle. **

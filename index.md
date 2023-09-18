@@ -1,3 +1,4 @@
+
 # Opentelemetry Manual instrumentation with Oracle Cloud Infrastructure APM
 
 In this doc, lets discuss manual Opentelemetry instrumentation process using Opentelemetry SDK's . 
@@ -11,7 +12,8 @@ Lets also learn some basics as we go:
 	- Use of semantic conventions
     - Exploring traces on OCI APM 
 
-# Architecture
+
+<h1>Architecture</h1> 
 
 ![Architecture](./assets/images/otel-manual-inst.jpg)
 
@@ -61,8 +63,27 @@ def single_span():
   current_span.set_attribute(SpanAttributes.HTTP_URL, "https://opentelemetry.io/") 
   ```
 # Code
-Head to https://github.com/naikvenu/oracle-opentelemetry/tree/main/singleSpanExample
-and try the example that we discussed.
+Head to the [example](https://github.com/naikvenu/oracle-opentelemetry/tree/main/singleSpanExample) and give it a try.
+
+** How to run:
+
+```python
+(myvenv) vsnaik@vsnaik-mac otel-app % python otel-app.py
+doing some work at this span...
+(myvenv) vsnaik@vsnaik-mac otel-app %
+```
+
+# Analyze traces using OCI APM 
+
+We can now head over to OCI console -> Observability & Management -> Application Performance Monitoring
+
+![Traces](./assets/images/Traces.jpg)
+![Span Attributes](./assets/images/span-attr1.jpg)
+![Span Attributes](./assets/images/span-attr2.jpg)
+
+Now, if you add another function called second_span and call that from inside single_span, you would see 2 spans under one trace:
+
+![multiple Spans](./assets/images/multi-span.jpg)
 
 # Summary
 This was the simple use case that we explored, we will keep adding more examples in future.

@@ -21,24 +21,26 @@ trace.set_tracer_provider(provider)
 
 tracer = trace.get_tracer("OTEL-demo","1.0", provider,None)
 
-
 @app.route("/oteldemo")
 @tracer.start_as_current_span("oteldemo")
 def oteldemo():
-    current_span = trace.get_current_span()
+  
+  print("doing some work at this span...")
+  current_span = trace.get_current_span()
 
-    #current_span.set_attribute("operation.value", 1)
-    current_span.set_attribute("operation-name", "Just get call on oteldemo!")
-    #current_span.set_attribute("operation.other-stuff", [1, 2, 3])
-    from opentelemetry.semconv.trace import SpanAttributes
-    #current_span.set_attribute(SpanAttributes.HTTP_METHOD, "GET")
-    #current_span.set_attribute(SpanAttributes.HTTP_URL, "/oteldemo")
-    current_span.add_event("This is a OTEL OCI APM demo ..")
+  # Setting Span Attributes
+  current_span.set_attribute("operation.value", 8888)
+  current_span.set_attribute("operation.name", "Just a OTEL Demo")
 
-    return "Hello ! This is a OTEL OCI APM demo .."
+  # Adding a Event
+  current_span.add_event("Hello This is a message from OCI APM OTEL demo")
 
+  # Using Semantic Conventions
+  from opentelemetry.semconv.trace import SpanAttributes
+  current_span.set_attribute(SpanAttributes.HTTP_METHOD, "GET")
+  current_span.set_attribute(SpanAttributes.HTTP_URL, "https://opentelemetry.io/")
 
-
+  return "Hello ! This is a OTEL OCI APM demo .."
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

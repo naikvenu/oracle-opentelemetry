@@ -88,4 +88,6 @@ Now, if you add another function called second_span and call that from inside si
 # Summary
 This was the simple use case that we explored, we will keep adding more examples in future.
 
+--
+<br>
 ** Disclaimer:  I work for Oracle and the views expressed on this documentation are my own and do not necessarily reflect the views of Oracle. **

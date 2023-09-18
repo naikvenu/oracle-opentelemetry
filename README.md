@@ -1,7 +1,7 @@
 
-# Opentelemetry Manual instrumentation with Oracle Cloud Infrastructure APM
+# Opentelemetry instrumentation with Oracle Cloud Infrastructure APM
 
-In this doc, lets discuss manual Opentelemetry instrumentation process using Opentelemetry SDK's . 
+In this doc, lets discuss Opentelemetry manual instrumentation process using Opentelemetry SDK's . 
 We will use OCI APM as a back-end to analyze these traces.
 
 Lets also learn some basics as we go:

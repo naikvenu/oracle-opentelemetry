@@ -3,7 +3,7 @@
 In this doc, lets discuss manual Opentelemetry instrumentation process using Opentelemetry SDK's . 
 We will use OCI APM as a back-end to analyze these traces.
 
-![image](../assets/images/otel-manual-inst.jpg)
+![Architecture](./assets/images/otel-manual-inst.jpg)
 
 As you can see in this architecture all these application services are communicating with each other via Http or gRPC protocol and each of these services are configured to send the traces directly to APM. Do note that the services send traces to APM via OTLP protocol.
 

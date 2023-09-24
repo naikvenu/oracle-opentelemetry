@@ -78,11 +78,14 @@ doing some work at this span...
 We can now head over to OCI console -> Observability & Management -> Application Performance Monitoring
 
 ![Traces](./assets/images/Traces.jpg)
-
+![Span Attributes](./assets/images/span-attr1.jpg)
 ![Span Attributes](./assets/images/span-attr2.jpg)
 
 As you can see the span attributes that we added are all listed here which can be used to filter traces.
 The Span events are shown under the log entries section. The semantic constants HTTP_URL and HTTP_METHOD are also detected.
+
+Do refer to documentation on Configuring Span rules to convert from OpenTelemetry to APM Span Attributes [here] (https://docs.oracle.com/en-us/iaas/application-performance-monitoring/doc/configure-span-rules.html#GUID-89AF5345-05EF-4FC9-BF49-85203F8159D9)
+<br>
 Now, if want to enhance the code further and add another function called child_span and call that from inside single_span,
 you would see 2 spans under one trace:
 

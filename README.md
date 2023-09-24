@@ -88,8 +88,6 @@ you would see 2 spans under one trace:
 
 ![multiple Spans](./assets/images/multi-span.jpg)
 
-# Summary
-This was the simple use case that we explored, we will keep adding more examples in future.
 
 <br>
 <br>

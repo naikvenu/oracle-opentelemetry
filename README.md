@@ -78,7 +78,11 @@ doing some work at this span...
 We can now head over to OCI console -> Observability & Management -> Application Performance Monitoring
 
 ![Traces](./assets/images/Traces.jpg)
+<br>
+***********
 ![Span Attributes](./assets/images/span-attr1.jpg)
+<br>
+***********
 ![Span Attributes](./assets/images/span-attr2.jpg)
 
 As you can see the span attributes that we added are all listed here which can be used to filter traces.

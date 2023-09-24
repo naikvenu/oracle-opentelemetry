@@ -68,9 +68,8 @@ Head to the [example](https://github.com/naikvenu/oracle-opentelemetry/tree/main
 ** How to run:
 
 ```python
-(myvenv) vsnaik@vsnaik-mac otel-app % python otel-app.py
+$ python otel-app.py
 doing some work at this span...
-(myvenv) vsnaik@vsnaik-mac otel-app %
 ```
 
 # Analyze traces using OCI APM 

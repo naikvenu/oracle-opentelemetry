@@ -51,8 +51,8 @@ def single_span():
   current_span = trace.get_current_span()
   
   # Setting Span Attributes
-  current_span.set_attribute("operation.value", 8888)
-  current_span.set_attribute("operation.name", "Just a OTEL Demo")
+  current_span.set_attribute("SingleSpanTaskValue", 8888)
+  current_span.set_attribute("SingleSpanTaskName", "Just a OTEL Demo")
   
   # Adding a Event
   current_span.add_event("Hello This is a message from OCI APM OTEL demo")

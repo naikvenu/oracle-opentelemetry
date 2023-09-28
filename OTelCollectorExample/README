@@ -1,12 +1,13 @@
-
 # Opentelemetry instrumentation with Oracle Cloud Infrastructure APM (using OTel Collector)
 
-If you have just started on OTEL instrumentation, head to the [basics](../README.md)
+In this example we will cover the OTEL instrumentation with Otel collector and OCI APM.
+
+Refer [SingleSpanExample(../README.md) before starting on this use case.
 
 
-<h1>Architecture</h1> 
+# Architecture
 
-![Architecture](./assets/images/otel-manual-inst.jpg)
+![Architecture](../assets/images/otel-manual-inst.jpg)
 
 # Steps
 
@@ -16,7 +17,7 @@ If you have just started on OTEL instrumentation, head to the [basics](../README
  $ cd OTelCollectorExample
  ```
 
- # Build and push the Image to OCIR Registry
+ # Build and push the Image to Oracle OCIR Registry
 
  Example:
 
@@ -27,6 +28,8 @@ If you have just started on OTEL instrumentation, head to the [basics](../README
  ```
 
 # Deploy the App
+
+Steps to configuring Kubernetes are omitted from this documentation.
 
 Create a namespace called demo.
 
@@ -74,7 +77,13 @@ Apply:
 kubectl -n demo create -f otel-apm-dep.yml
 ```
 
-# Proxy Forward
+# Deploy the Collector
+
+```
+kubectl -n demo create -f otel-collector.yaml
+```
+
+# Proxy Forward the App
 
 ```
 kubectl -n demo get pods
@@ -83,11 +92,13 @@ kubectl port-forward pods/otel-apm-demoapp-864d76db4c-d4thh 5000:5000
 
 ```
 
-# Deploy the Collector
+# Access the Application
 
-```
-kubectl -n demo create -f otel-collector.yaml
-```
+http://localhost:5000
+
+# Verify the traces on OCI APM
+
+
 
 
 <br>

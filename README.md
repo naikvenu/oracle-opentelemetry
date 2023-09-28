@@ -15,7 +15,7 @@ Lets also learn some basics as we go:
 
 <h1>Architecture</h1> 
 
-![Architecture](./assets/images/otel-manual-inst.jpg)
+![Architecture](./assets/images/otel-direct.jpg)
 
 We will be implementing the above use case. As you can see in this architecture all these application services are communicating with each other via Http or gRPC protocol and each of these services are configured to send the traces directly to OCI APM. Do note that the services send traces to APM via OTLP protocol.
 

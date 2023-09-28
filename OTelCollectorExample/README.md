@@ -77,6 +77,7 @@ kubectl -n demo create -f otel-apm-dep.yml
 
 # Deploy the Collector
 
+Add the <APM_ENDPOINT> and <DATA_KEY> before running the below command.
 ```
 kubectl -n demo create -f kubernetes/otel-collector.yaml
 ```

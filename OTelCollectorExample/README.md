@@ -35,9 +35,7 @@ Create a namespace called demo.
 
 ```
 kubectl create ns demo
-
-kubectl -n demo delete -f otel-apm-dep.yml
-kubectl create secret docker-registry ocirsecret --docker-server=syd.ocir.io --docker-username=<tenancy>/oracleidentitycloudservice/<username> --docker-password='<token>'
+kubectl -n demo create secret docker-registry ocirsecret --docker-server=syd.ocir.io --docker-username=<tenancy>/oracleidentitycloudservice/<username> --docker-password='<token>'
 
 ```
 
@@ -94,11 +92,11 @@ kubectl port-forward pods/otel-apm-demoapp-864d76db4c-d4thh 5000:5000
 
 # Access the Application
 
-http://localhost:5000
+           http://localhost:5000
 
 # Verify the traces on OCI APM
 
-
+![Span Details](../assets/images/span-attr1-col.jpg)
 
 
 <br>

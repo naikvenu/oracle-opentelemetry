@@ -2,7 +2,7 @@
 
 In this example we will cover the OTEL instrumentation with Otel collector and OCI APM.
 
-Refer [SingleSpanExample(../README.md) before starting on this use case.
+Refer [SingleSpanExample](../README.md) before starting on this use case.
 
 
 # Architecture

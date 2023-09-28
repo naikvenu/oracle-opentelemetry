@@ -78,7 +78,7 @@ kubectl -n demo create -f otel-apm-dep.yml
 # Deploy the Collector
 
 ```
-kubectl -n demo create -f otel-collector.yaml
+kubectl -n demo create -f kubernetes/otel-collector.yaml
 ```
 
 # Proxy Forward the App

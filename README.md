@@ -62,14 +62,17 @@ def single_span():
   current_span.set_attribute(SpanAttributes.HTTP_METHOD, "GET")
   current_span.set_attribute(SpanAttributes.HTTP_URL, "https://opentelemetry.io/") 
   ```
-# Code
-Head to the [example](https://github.com/naikvenu/oracle-opentelemetry/tree/main/singleSpanExample) and give it a try.
 
 ** How to run:
 
+[Clone](https://github.com/naikvenu/oracle-opentelemetry/tree/main/singleSpanExample) this repository
+
+Create a virtual env if required.
+
 ```python
+$ cd SingleSpanExample
 $ python otel-app.py
-doing some work at this span...
+  doing some work at this span...
 ```
 
 # Analyze traces using OCI APM 
@@ -95,6 +98,9 @@ you would see 2 spans under one trace:
 
 ![multiple Spans](./assets/images/multi-span.jpg)
 
+# Next Steps
+
+Try [OTelCollectorExample](OTelCollectorExample/README.md) next.
 
 <br>
 <br>

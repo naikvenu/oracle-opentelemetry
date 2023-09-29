@@ -2,12 +2,18 @@
 
 In this example we will cover the OTEL instrumentation with Otel collector and OCI APM.
 
+The OpenTelemetry Collector is a vendor-agnostic proxy that can receive, process, and export telemetry data. It supports receiving telemetry data in multiple formats (for example, OTLP, Jaeger, Prometheus, as well as many commercial/proprietary tools) and sending data to one or more backends. It also supports processing and filtering telemetry data before it gets exported.
+
+Read more https://opentelemetry.io/docs/collector/
+
+
+
 Refer [SingleSpanExample](../README.md) before starting on this use case.
 
 
 # Architecture
 
-![Architecture](../assets/images/otel-manual-inst.jpg)
+![Architecture](../assets/images/otel-col.jpg)
 
 # Steps
 

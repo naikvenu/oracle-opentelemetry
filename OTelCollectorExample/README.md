@@ -6,9 +6,18 @@ The OpenTelemetry Collector is a vendor-agnostic proxy that can receive, process
 
 Read more https://opentelemetry.io/docs/collector/
 
+We did explore [SingleSpanExample](../README.md) example to get started with OpenTelemetry, sending your data directly to a backend is a great way to get value quickly. Also, in a development or small-scale environment you can get decent results without a collector.
 
+However, in general its recommended using a collector alongside your service, since it allows your service to offload data quickly and the collector can take care of additional handling like retries, batching, encryption or even sensitive data filtering.
 
-Refer [SingleSpanExample](../README.md) before starting on this use case.
+The Collector consists of four components that access telemetry data:
+
+    Receivers
+    Processors
+    Exporters
+    Connectors 
+
+These components once configured must be enabled via pipelines within the service section.
 
 
 # Architecture
@@ -23,7 +32,7 @@ Refer [SingleSpanExample](../README.md) before starting on this use case.
  $ cd OTelCollectorExample
  ```
 
- # Build and push the Image to Oracle OCIR Registry
+ # Build and push the Instrumented Application Image to Oracle OCIR Registry
 
  Example:
 
@@ -35,17 +44,18 @@ Refer [SingleSpanExample](../README.md) before starting on this use case.
 
 # Deploy the App
 
-Steps to configuring Kubernetes are omitted from this documentation.
+We'll be using Kubernetes to work with this example. Steps to configure Kubernetes is omitted from this documentation.
 
-Create a namespace called demo.
-
-```
-kubectl create ns demo
-kubectl -n demo create secret docker-registry ocirsecret --docker-server=syd.ocir.io --docker-username=<tenancy>/oracleidentitycloudservice/<username> --docker-password='<token>'
+- Create a namespace called demo.
 
 ```
+$ kubectl create ns demo
 
-otel-apm-dep.yml:
+$ kubectl -n demo create secret docker-registry ocirsecret --docker-server=syd.ocir.io --docker-username=<tenancy>/oracleidentitycloudservice/<username> --docker-password='<token>'
+
+```
+
+- Create a file named otel-apm-dep.yml:
 
 ```yaml
 apiVersion: apps/v1
@@ -81,14 +91,14 @@ Apply:
 kubectl -n demo create -f otel-apm-dep.yml
 ```
 
-# Deploy the Collector
+# Deploying the Collector
 
 Add the <APM_ENDPOINT> and <DATA_KEY> before running the below command.
 ```
 kubectl -n demo create -f kubernetes/otel-collector.yaml
 ```
 
-# Proxy Forward the App
+# Proxy Forward the Application Pod
 
 ```
 kubectl -n demo get pods

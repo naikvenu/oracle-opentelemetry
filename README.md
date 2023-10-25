@@ -30,7 +30,7 @@ OTLP is a general-purpose telemetry data delivery protocol, it defines the encod
 
 The above explanation highlights the details of the exporter when OTEL collector is used. If we are using APM as back-end then you would need to initialize the OTLPSpanExporter as shown below:
 ```
-exporter = OTLPSpanExporter(endpoint="https://<apm-data-upload-endpoint>.com/20200101/opentelemetry/public/",
+exporter = OTLPSpanExporter(endpoint="https://<apm-data-upload-endpoint>.com/20200101/opentelemetry/public/v1/traces",
                           headers={"authorization": "dataKey <apm-domain-data-key>"})
 
 ```
